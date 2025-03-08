@@ -17,12 +17,14 @@ class NoteFactory extends Factory
      */
     public function definition(): array
     {
+        $users = User::all();
+
         return [
             // 'uuid' => fake()->uuid(),
             'title' => fake()->name(),
             'body' => fake()->paragraph(),
             'send_date' => now()->addDay(),
-            'user_id' => User::factory(),
+            'user_id' => $users->random(),
         ];
     }
 }
